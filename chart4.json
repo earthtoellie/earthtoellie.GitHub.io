@@ -1,0 +1,48 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "height": 300,
+    "width": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/RDeconomist/observatory/main/U21_C4.csv"
+    },
+    "layer": [
+      {
+        "mark": {"type": "point", "size": 55, "color": "#e6224b", "filled": true},
+        "encoding": {
+          "x": {
+            "field": "value1",
+            "type": "quantitative",
+            "title": "Share of respondents with confidence in government"
+          },
+          "y": {
+            "field": "value2",
+            "type": "quantitative",
+            "title": "Share that would cut incomce for the environment"
+          },
+          "tooltip": [
+            {"field": "region", "type": "nominal", "title": "Region"},
+            {
+              "field": "value2",
+              "type": "quantitative",
+              "title": "Share that would cut incomce for the environment"
+            },
+            {
+              "field": "value1",
+              "type": "quantitative",
+              "title": "Share of respondents with confidence in government"
+            }
+          ]
+        }
+      },
+      {
+        "mark": {"type": "line", "color": "#122b39"},
+        "transform": [
+          {"regression": "value2", "on": "value1", "extent": [0.1, 0.34]}
+        ],
+        "encoding": {
+          "x": {"field": "value1", "type": "quantitative"},
+          "y": {"field": "value2", "type": "quantitative"}
+        }
+      }
+    ]
+  }
