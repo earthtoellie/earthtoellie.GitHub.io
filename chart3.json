@@ -1,0 +1,20 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text":"Egypt Electricity",
+    "subtitle": ["Output, GWh", "Source: IEA via ECO-API"]
+  },
+
+  "width": 400,
+  "height": 300,
+
+  "data": {"url": "https://api.economicsobservatory.com/egy/eGWh?vega"},
+
+  "mark": "line",
+
+  "encoding": {
+    "x": {"field": "date", "type": "temporal"},
+    "y": {"field": "value", "type": "quantitative", "title":null}
+  }
+}
